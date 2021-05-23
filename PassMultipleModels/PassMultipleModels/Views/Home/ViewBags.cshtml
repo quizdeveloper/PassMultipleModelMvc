@@ -1,0 +1,55 @@
+﻿@using PassMultipleModels.Service.Models
+@{
+    List<BooksModel> books = ViewBag.Books != null ? ViewBag.Books : null;
+    List<CategoriesModel> categories = ViewBag.Categories != null ? ViewBag.Categories : null;
+}
+<h1>View bag</h1>
+@if (categories != null && categories.Any())
+{
+    <h2>Categories</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 70px;">Id</th>
+                <th>Name</th>
+                <th>Created Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cate in categories)
+            {
+                <tr>
+                    <td>@cate.Id</td>
+                    <td>@cate.CateName</td>
+                    <td>@cate.CreatedDate.ToString("MMM dd yyyy")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@if (books != null && books.Any())
+{
+    <h2>Books</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 70px;">Id</th>
+                <th>Book Name</th>
+                <th>Author</th>
+                <th>Publish Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in books)
+            {
+                <tr>
+                    <td>@book.Id</td>
+                    <td>@book.BookName</td>
+                    <td>@book.Author</td>
+                    <td>@book.PublishDate.ToString("MMM dd yyyy")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

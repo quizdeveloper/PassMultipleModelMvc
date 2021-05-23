@@ -1,0 +1,52 @@
+﻿@using PassMultipleModels.Service.Models
+@model Tuple<List<CategoriesModel>, List <BooksModel>>
+
+<h1>Tuple</h1>
+
+@if (Model != null)
+{
+    <h2>Categories</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 70px;">Id</th>
+                <th>Name</th>
+                <th>Created Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cate in Model.Item1)
+            {
+                <tr>
+                    <td>@cate.Id</td>
+                    <td>@cate.CateName</td>
+                    <td>@cate.CreatedDate.ToString("MMM dd yyyy")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+    <h2>Books</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 70px;">Id</th>
+                <th>Book Name</th>
+                <th>Author</th>
+                <th>Publish Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model.Item2)
+            {
+                <tr>
+                    <td>@book.Id</td>
+                    <td>@book.BookName</td>
+                    <td>@book.Author</td>
+                    <td>@book.PublishDate.ToString("MMM dd yyyy")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
